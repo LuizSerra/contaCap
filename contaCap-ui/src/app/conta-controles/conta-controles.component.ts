@@ -15,7 +15,7 @@ export class ContaControlesComponent implements OnInit {
 
   constructor(private contaService: ContaService, private transacaoService: TransacaoService) { }
 
-  @Input() contaRecebida: Conta;
+  contaRecebida: Conta;
   transacao: Transacao;
   conta: Conta;
   transacoes;
@@ -36,12 +36,12 @@ export class ContaControlesComponent implements OnInit {
   operar(frm: FormGroup) {
 
     if (this.transacao.tipo==='EXTRATO' && this.transacao.conta) {
+      this.getContaById();
       this.getTransacoes();
     }
     else {
       this.addTransacao();
     }
-    frm.reset();
   }
 
   addTransacao(){
@@ -55,5 +55,15 @@ export class ContaControlesComponent implements OnInit {
     console.log(`resultado ${this.transacoes}`);
   }
 
+  getContaById(){
+    this.contaService.getContaByID(this.transacao.conta.codigo).subscribe(conta => this.contaRecebida = conta);
+  }
+
+  reset(frm: FormGroup) {
+    frm.reset();
+    this.transacoes = [];
+    this.contaRecebida = undefined;
+
+  }
 
 }

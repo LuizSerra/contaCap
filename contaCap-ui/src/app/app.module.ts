@@ -6,13 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ContaControlesComponent } from './conta-controles/conta-controles.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ListagemTransacoesComponent } from './listagem-transacoes/listagem-transacoes.component';
+import { CriarContaComponent } from './criar-conta/criar-conta.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContaControlesComponent,
-    ListagemTransacoesComponent,
+    CriarContaComponent,
   ],
   imports: [
     BrowserModule,

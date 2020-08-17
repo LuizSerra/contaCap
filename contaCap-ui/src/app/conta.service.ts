@@ -12,7 +12,7 @@ export class ContaService {
 
   private baseUrl = 'http://localhost:9000/contas';  // URL to web api
 
-  addTransacao(conta: Conta): void {
+  addConta(conta: Conta): void {
 
   }
 
