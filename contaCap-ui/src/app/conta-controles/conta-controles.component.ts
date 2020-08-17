@@ -16,6 +16,7 @@ export class ContaControlesComponent implements OnInit {
   constructor(private contaService: ContaService, private transacaoService: TransacaoService) { }
 
   contaRecebida: Conta;
+  novaConta: Conta;
   transacao: Transacao;
   conta: Conta;
   transacoes;
@@ -27,6 +28,7 @@ export class ContaControlesComponent implements OnInit {
   ]
 
   ngOnInit(): void {
+    this.novaConta = {};
     this.transacao = {};
     this.conta = {};
     this.transacao.conta = this.conta;
@@ -45,8 +47,8 @@ export class ContaControlesComponent implements OnInit {
   }
 
   addTransacao(){
-    this.transacaoService.addTransacao(this.transacao).subscribe(transacao => console.log(`aqui: ${transacao}`));
-    this.getTransacoes();
+    this.transacaoService.addTransacao(this.transacao).subscribe((transacao: Transacao) => console.log(`aqui: ${transacao}`));
+
   }
 
   getTransacoes(): void {
@@ -57,6 +59,11 @@ export class ContaControlesComponent implements OnInit {
 
   getContaById(){
     this.contaService.getContaByID(this.transacao.conta.codigo).subscribe(conta => this.contaRecebida = conta);
+  }
+
+  addConta(conta:Conta) {
+    console.log('testando a conta'+conta.titular);
+    this.contaService.addConta(conta).subscribe(conta => alert(`conta codigo ${conta.codigo} foi criada`));
   }
 
   reset(frm: FormGroup) {

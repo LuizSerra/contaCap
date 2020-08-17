@@ -12,8 +12,8 @@ export class ContaService {
 
   private baseUrl = 'http://localhost:9000/contas';  // URL to web api
 
-  addConta(conta: Conta): void {
-
+  addConta(conta: Conta): Observable<Conta> {
+    return this.http.post(`${this.baseUrl}`, conta, this.httpOptions)
   }
 
   getContaByID(id: string): Observable<Conta> {

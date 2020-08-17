@@ -13,7 +13,6 @@ export class TransacaoService {
   private baseUrl = 'http://localhost:9000/transacoes';  // URL to web api
 
   addTransacao(transacao: Transacao): any {
-    console.log(transacao);
     return this.http.post(`${this.baseUrl}`, transacao, this.httpOptions)
   }
 

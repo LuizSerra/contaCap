@@ -6,7 +6,11 @@
         <form method="post" #frm="ngForm" (ngSubmit)="operar(frm)">
           <div class="form-group">
             <h2>Bem vindo(a)</h2>
-            <h3> Para começar, informe o número da conta, selecione a operação desejada e clique em enviar.</h3>
+            <h4> Para começar, informe o número da conta, selecione a operação desejada e clique em enviar.</h4>
+            <h5>Ou clique no botão abaixo para criar uma nova conta.</h5>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNovaConta">
+              Criar conta
+            </button>
           </div>
 
           <div class="form-group">
@@ -67,3 +71,44 @@
     </section>
   </main>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="modalNovaConta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nova conta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="titular">Nome do Titular</label>
+          <input
+            class="form-control"
+            type="text"
+            id="titular"
+            name="titular"
+            placeholder="Nome do titular"
+            [(ngModel)]="novaConta.titular"
+            required />
+        </div>
+        <div class="form-group">
+          <label for="valor">Valor inicial</label>
+          <input
+            class="form-control"
+            type="number"
+            id="saldo"
+            name="saldo"
+            placeholder="Saldo Inicial"
+            [(ngModel)]="novaConta.saldo" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" [disabled]="!novaConta.titular" (click)="addConta(novaConta)">Adicionar</button>
+      </div>
+    </div>
+  </div>
+</div>
