@@ -20,6 +20,10 @@ export class ContaService {
     return this.http.get(`${this.baseUrl}/${id}`)
   }
 
+  getContas(): Observable<Conta[]> {
+    return this.http.get<Conta[]>(`${this.baseUrl}`)
+  }
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };

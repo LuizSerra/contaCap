@@ -17,9 +17,10 @@ export class ContaControlesComponent implements OnInit {
 
   contaRecebida: Conta;
   novaConta: Conta;
-  transacao: Transacao;
   conta: Conta;
+  contas;
   transacoes;
+  transacao: Transacao;
 
   tiposTransacao = [
     { label: 'Depositar', value: 'CREDITO' },
@@ -28,6 +29,7 @@ export class ContaControlesComponent implements OnInit {
   ]
 
   ngOnInit(): void {
+    this.getContas();
     this.novaConta = {};
     this.transacao = {};
     this.conta = {};
@@ -43,6 +45,7 @@ export class ContaControlesComponent implements OnInit {
     }
     else {
       this.addTransacao();
+      frm.reset();
     }
   }
 
@@ -54,7 +57,6 @@ export class ContaControlesComponent implements OnInit {
   getTransacoes(): void {
     if(this.transacao.conta)
     this.transacaoService.getTransacoes(this.transacao.conta.codigo).subscribe(transacoes => this.transacoes = transacoes);
-    console.log(`resultado ${this.transacoes}`);
   }
 
   getContaById(){
@@ -62,15 +64,24 @@ export class ContaControlesComponent implements OnInit {
   }
 
   addConta(conta:Conta) {
-    console.log('testando a conta'+conta.titular);
     this.contaService.addConta(conta).subscribe(conta => alert(`conta codigo ${conta.codigo} foi criada`));
+    this.novaConta = {};
+    this.getContas();
+  }
+
+  getContas():void {
+    this.contaService.getContas().subscribe(contas => this.contas = contas);
   }
 
   reset(frm: FormGroup) {
     frm.reset();
+    this.resetControles();
+
+  }
+
+  resetControles() {
     this.transacoes = [];
     this.contaRecebida = undefined;
-
   }
 
 }
