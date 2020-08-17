@@ -51,7 +51,7 @@ export class ContaControlesComponent implements OnInit {
 
   addTransacao(){
     this.transacaoService.addTransacao(this.transacao).subscribe((transacao: Transacao) => console.log(`aqui: ${transacao}`));
-
+    this.getContas();
   }
 
   getTransacoes(): void {
@@ -70,6 +70,7 @@ export class ContaControlesComponent implements OnInit {
   }
 
   getContas():void {
+    this.contas = undefined;
     this.contaService.getContas().subscribe(contas => this.contas = contas);
   }
 
