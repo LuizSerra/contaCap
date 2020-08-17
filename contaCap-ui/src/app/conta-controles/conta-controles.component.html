@@ -1,0 +1,64 @@
+<section>
+  <main role="main">
+
+    <section class="my-4">
+      <div class="container">
+        <form method="post" #frm="ngForm" (ngSubmit)="operar(frm)">
+          <div class="form-group">
+            <h2>Bem vindo(a), {{conta.titular}}!</h2>
+            <h3>Informe o número da conta, selecione a operação desejada e clique em enviar.</h3>
+          </div>
+
+          <div class="form-group">
+            <label for="conta">nº Conta</label>
+            <input type="number" id="conta" name="conta" placeholder="nº da conta" [(ngModel)]="transacao.conta.codigo" required />
+          </div>
+
+          <div class="form-group">
+            <label for="tipo">Operação</label>
+            <select id="tipo" name="tipo" [(ngModel)]="transacao.tipo" required>
+              <option *ngFor="let tipo of tiposTransacao" [ngValue]="tipo.value">
+                {{tipo.label}}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group" *ngIf="transacao.tipo == 'DEBITO' || transacao.tipo== 'CREDITO'">
+            <label for="valor">Valor</label>
+            <input type="number" id="valor" name="valor" placeholder="Valor" [(ngModel)]="transacao.valor" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="frm.invalid">Confirmar</button>
+        </form>
+      </div>
+    </section>
+    <section *ngIf="transacao.tipo == 'EXTRATO'">
+      <div>
+        <label>
+          Saldo: R$1000,00
+        </label>
+      </div>
+      <section *ngIf="transacoes">
+        <h2>operações</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Data</th>
+              <th>Tipo</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transacao of transacoes">
+              <td>{{transacao.codigo}}</td>
+              <td>{{transacao.data}}</td>
+              <td>{{transacao.tipo}}</td>
+              <td>{{transacao.valor}}</td>
+            </tr>
+          </tbody>
+          </table>
+        </section>
+    </section>
+  </main>
+</section>
