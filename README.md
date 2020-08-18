@@ -74,7 +74,7 @@ TRANSAÇÕES
 
 - **`Listar transações` (GET: localhost:9000/transacoes)**: 
 - **`Criar transacao` (POST: localhost:9000/transacoes)**: 
-	- O objeto a ser enviado deve conter o nome do titular e opcionalmente um valor inicial para o saldo. 
+	- O objeto a ser enviado deve conter valor, tipo de operação( CREDITO OU DEBITO) e um objeto com a referência do código da conta que sofrerá alteração. 
 		- Ex: `{"valor": 5000,"tipo": "CREDITO","conta": {"codigo": 1	}}` 
 			- OBS: o tipo de transação aceita os valores DEBITO ou CREDITO para simbolizar uma operação de Saque ou depósito respectivamente.
 - **`Listar transações por conta` (GET: localhost:9000/transacoes/conta/:id)**:  Essa rota lista as transações de uma determinada conta.
