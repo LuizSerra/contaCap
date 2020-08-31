@@ -92,7 +92,6 @@ TRANSAÇÕES
 	 - **Botão Enviar**:  Serve para disparar a ação selecionada no dropdown Operação. Esse botão só estará habilitado, caso o formulário tenha todos os campos obrigatórios preenchios.
 	 - **Botão limpar**: Limpa o formulário.
 
-![enter image description here](https://github.com/LuizSerra/contaCap/blob/master/contaCap-ui/src/assets/screenshot1.PNG)
 ## :computer: Quer contribuir com o Projeto? Saiba como:
 
 -   Faça um  **fork**  do projeto;
