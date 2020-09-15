@@ -1,19 +1,18 @@
 
 
-## :rocket: Sobre o desafio
+## :rocket: Sobre
 
-O desafio consiste em criar uma aplicação composta por uma API Rest com Java Spring Boot que deveria ser consumida por um frontend Angular 5+;
- A API Rest para expor os seguintes serviços para seus clientes: 
+Consiste uma aplicação simples composta por uma API Rest com Java Spring Boot que é consumida por um frontend Angular 5+;
+ A API Rest expõe os seguintes serviços para seus clientes: 
  1) Serviço para verificar o saldo de uma conta corrente; 
  2) Serviço para realizar um depósito em uma determinada conta corrente; 
  3) Serviço para realizar um saque de uma determinada conta corrente. 
  
-### REQUISITOS 
+### Estrutura
 
-1) A API Rest deve ser desenvolvida utilizando Java com Spring Boot. (o projeto pode ser criado utilizando o STS ou utilizando o Eclipse com plugin do STS ou utilizando o site https://start.spring.io/); 
-2) O frontend deve ser desenvolvido utilizando Angular 5; 
-3) Caso julgue necessário persistir algum dado, o candidato fica livre para propor a utilização de algum banco de dados. Por ter uma melhor portabilidade, sugerimos a utilização do banco em memória H2, mas não é obrigatório; 
-4) Caso utilize algum banco de dados, deve ser utilizado o framework JPA juntamente com o Spring Data;
+1) A API Rest desenvolvida utilizando Java com Spring Boot. (o projeto pode ser criado utilizando o STS ou utilizando o Eclipse com plugin do STS ou utilizando o site https://start.spring.io/); 
+2) O frontend desenvolvido utilizando Angular 10; 
+3) Persistência de dados utilizando Spring Data e Hibernate para conectar com a base em MySQL
 
 
 ## :hammer: Tecnologias Utilizadas:
